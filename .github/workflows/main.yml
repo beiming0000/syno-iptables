@@ -289,7 +289,7 @@ jobs:
       - name: Upload to Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: iptables
+          name: iptables-${{ matrix.platform }}-${{ matrix.version }}
           path: |
             ${{ github.workspace }}/source/*.tgz
             
@@ -332,7 +332,7 @@ jobs:
         if: env.VERSION != ''
         uses: actions/download-artifact@v4
         with:
-          name: iptables
+          name: iptables-*
           path: ./iptables
 
       # - name: Zip iptables
